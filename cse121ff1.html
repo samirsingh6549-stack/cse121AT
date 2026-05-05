@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Earth Public School - Your Gateway to Success</title>
+    
+    <style>
+        /* ===========================
+           UNIVERSAL STYLES
+           =========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Floating Bubbles Background */
+        .bubble-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float linear infinite;
+            box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .bubble:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            animation-duration: 8s;
+            animation-delay: 0s;
+        }
+
+        .bubble:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            left: 20%;
+            animation-duration: 10s;
+            animation-delay: -2s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            left: 30%;
+            animation-duration: 12s;
+            animation-delay: -4s;
+        }
+
+        .bubble:nth-child(4) {
+            width: 50px;
+            height: 50px;
+            left: 40%;
+            animation-duration: 9s;
+            animation-delay: -1s;
+        }
+
+        .bubble:nth-child(5) {
+            width: 90px;
+            height: 90px;
+            left: 50%;
+            animation-duration: 11s;
+            animation-delay: -3s;
+        }
+
+        .bubble:nth-child(6) {
+            width: 70px;
+            height: 70px;
+            left: 60%;
+            animation-duration: 13s;
+            animation-delay: -5s;
+        }
+
+        .bubble:nth-child(7) {
+            width: 110px;
+            height: 110px;
+            left: 70%;
+            animation-duration: 10s;
+            animation-delay: -2s;
+        }
+
+        .bubble:nth-child(8) {
+            width: 55px;
+            height: 55px;
+            left: 80%;
+            animation-duration: 12s;
+            animation-delay: -4s;
+        }
+
+        .bubble:nth-child(9) {
+            width: 85px;
+            height: 85px;
+            left: 90%;
+            animation-duration: 9s;
+            animation-delay: -1s;
+        }
+
+        @keyframes float {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Container for limiting max-width */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===========================
+           HEADER & NAVIGATION
+           =========================== */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(4px);
+            border-radius: 0 0 20px 20px;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #d4af37;
+            transform: scale(1.1);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Navigation Menu */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===========================
+           HERO SECTION (HOME)
+           =========================== */
+        .hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.5), rgba(42, 82, 152, 0.5)),
+                        url('https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=1200&h=600&fit=crop') center/cover;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 0 30px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            animation: bounce 0.6s ease-out 0.2s both;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: bounce 0.6s ease-out 0.4s both;
+        }
+
+        @keyframes bounce {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Welcome Button */
+        .welcome-btn {
+            background: linear-gradient(135deg, #d4af37 0%, #f0d54a 100%);
+            color: #1e3c72;
+            padding: 15px 40px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+            animation: bounce 0.6s ease-out 0.6s both;
+        }
+
+        .welcome-btn:hover {
+            background: linear-gradient(135deg, #f0d54a 0%, #d4af37 100%);
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .welcome-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ===========================
+           SECTION STYLING
+           =========================== */
+        section {
+            padding: 60px 20px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About Section */
+        #about {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 240, 0.95) 100%);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        #about h2 {
+            color: #1e3c72;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .about-content p:hover {
+            transform: translateX(10px);
+            color: #1e3c72;
+        }
+
+        /* ===========================
+           COURSES SECTION
+           =========================== */
+        #courses {
+            background: transparent;
+        }
+
+        #courses h2 {
+            color: white;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .course-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 245, 0.95) 100%);
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border-top: 5px solid #2a5298;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            transition: all 0.6s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+            border-top: 5px solid #d4af37;
+        }
+
+        .course-card:hover::before {
+            transform: translate(-50%, -50%);
+        }
+
+        .course-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover h3 {
+            color: #d4af37;
+            transform: scale(1.05);
+        }
+
+        .course-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .course-btn {
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(42, 82, 152, 0.3);
+            overflow: hidden;
+        }
+
+        .course-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .course-btn:hover {
+            background: linear-gradient(135deg, #d4af37 0%, #f0d54a 100%);
+            color: #1e3c72;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .course-btn:hover::before {
+            left: 100%;
+        }
+
+        /* ===========================
+           MODAL STYLES FOR ACHIEVEMENTS
+           =========================== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            animation: fadeInBackdrop 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeInBackdrop {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 245, 250, 0.98) 100%);
+            margin: auto;
+            padding: 3rem;
+            border-radius: 30px;
+            width: 90%;
+            max-width: 650px;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+            animation: slideInDown 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: rgba(42, 82, 152, 0.1);
+            border-radius: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #2a5298 0%, #d4af37 100%);
+            border-radius: 10px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #d4af37;
+            padding-bottom: 1.5rem;
+        }
+
+        .modal-header h2 {
+            color: #1e3c72;
+            margin: 0;
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: slideRight 0.5s ease-out;
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .close-btn {
+            background: linear-gradient(135deg, #d32f2f 0%, #f44336 100%);
+            border: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.5);
+        }
+
+        .achievements-list {
+            margin-top: 1.5rem;
+        }
+
+        .achievement-item {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            border-left: 6px solid #d4af37;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.15);
+        }
+
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .achievement-item:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            border-left: 6px solid #2a5298;
+        }
+
+        .achievement-item:hover::before {
+            left: 100%;
+        }
+
+        .achievement-item h4 {
+            color: #1e3c72;
+            margin: 0 0 0.7rem 0;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .achievement-item p {
+            color: #555;
+            margin: 0;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .achievement-year {
+            display: inline-block;
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 0.7rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(42, 82, 152, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-year:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(42, 82, 152, 0.5);
+        }
+
+        /* ===========================
+           CONTACT SECTION & FORM
+           =========================== */
+        #contact {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 240, 0.95) 100%);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        #contact h2 {
+            color: #1e3c72;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(42, 82, 152, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 25px;
+            text-align: center;
+            border-left: 6px solid #2a5298;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            transition: all 0.6s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-left: 6px solid #d4af37;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .info-card:hover::before {
+            transform: translate(-50%, -50%);
+        }
+
+        .info-card h3 {
+            color: #1e3c72;
+            margin-bottom: 0.7rem;
+            position: relative;
+            z-index: 1;
+            font-size: 1.2rem;
+        }
+
+        .info-card p {
+            color: #555;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.95) 100%);
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem;
+            color: #1e3c72;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .form-group:hover label {
+            color: #d4af37;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid rgba(42, 82, 152, 0.3);
+            border-radius: 15px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2a5298;
+            box-shadow: 0 0 15px rgba(42, 82, 152, 0.3);
+            background: white;
+            transform: scale(1.02);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+            border-radius: 20px;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(42, 82, 152, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #d4af37 0%, #f0d54a 100%);
+            color: #1e3c72;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Error Messages */
+        .error-message {
+            color: #d32f2f;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+            animation: shake 0.3s ease;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #d32f2f;
+            background-color: #ffebee;
+        }
+
+        /* ===========================
+           FOOTER
+           =========================== */
+        footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            border-radius: 30px 30px 0 0;
+        }
+
+        footer p {
+            margin: 0.7rem 0;
+            transition: all 0.3s ease;
+        }
+
+        footer p:hover {
+            transform: scale(1.05);
+        }
+
+        /* ===========================
+           RESPONSIVE DESIGN
+           =========================== */
+        @media (max-width: 768px) {
+            /* Navigation */
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #1e3c72;
+                width: 100%;
+                padding: 1rem 0;
+                gap: 0;
+                border-radius: 0 0 20px 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav a {
+                display: block;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Hero Section */
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            /* Sections */
+            section h2 {
+                font-size: 2rem;
+            }
+
+            /* Courses Grid */
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Contact Form */
+            .contact-container {
+                margin: 2rem 0;
+                padding: 1.5rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 40px 15px;
+                margin: 20px 0;
+            }
+
+            header .container {
+                padding: 0 15px;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 1.5rem;
+            }
+
+            .modal-header h2 {
+                font-size: 1.3rem;
+            }
+
+            .course-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ===========================
+           SUCCESS MESSAGE
+           =========================== */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            padding: 1.2rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+            border-left: 6px solid #fff;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===========================
+         FLOATING BUBBLES BACKGROUND
+         =========================== -->
+    <div class="bubble-container">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- ===========================
+         HEADER & NAVIGATION
+         =========================== -->
+    <header>
+        <div class="container">
+            <a href="#home" class="logo">🎓 The Earth Public School</a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- ===========================
+         HOME SECTION (HERO)
+         =========================== -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to The Earth Public School</h1>
+            <p>Your Gateway to Success and Excellence in Education</p>
+            <!-- Interactive Welcome Button -->
+            <button class="welcome-btn" id="welcome-btn">Click for a Special Message!</button>
+            <p id="welcome-message" style="display: none; margin-top: 1.5rem; font-size: 1.2rem; font-weight: bold;">
+                ✨ Welcome to our school! We're excited to have you here! ✨
+            </p>
+        </div>
+    </section>
+
+    <!-- ===========================
+         ABOUT SECTION
+         =========================== -->
+    <section id="about">
+        <div class="container">
+            <h2>About Our School</h2>
+            <div class="about-content">
+                <p>
+                    The Earth Public School is a leading educational institution dedicated to providing quality education 
+                    and fostering the development of well-rounded students. Since its establishment, we have been 
+                    committed to academic excellence and character development.
+                </p>
+                <p>
+                    Our experienced faculty members are passionate about teaching and mentoring students to achieve 
+                    their full potential. We believe in creating a supportive learning environment where every student 
+                    can thrive and succeed.
+                </p>
+                <p>
+                    With state-of-the-art facilities and modern teaching methods, we prepare students for challenges 
+                    of the future while instilling values of integrity, discipline, and social responsibility.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         COURSES SECTION
+         =========================== -->
+    <section id="courses">
+        <div class="container">
+            <h2>Our Courses</h2>
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <div class="course-card">
+                    <h3>📚 Science & Technology</h3>
+                    <p>
+                        Explore the wonders of science through hands-on experiments and modern laboratory facilities. 
+                        Learn physics, chemistry, and biology in an interactive environment.
+                    </p>
+                    <button class="course-btn" data-course="science">Learn More</button>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card">
+                    <h3>🔢 Mathematics & Logic</h3>
+                    <p>
+                        Develop problem-solving skills and mathematical thinking. Our curriculum covers arithmetic, 
+                        algebra, geometry, and advanced mathematical concepts.
+                    </p>
+                    <button class="course-btn" data-course="mathematics">Learn More</button>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card">
+                    <h3>📖 Languages & Literature</h3>
+                    <p>
+                        Master English and other languages with expert instructors. Enhance communication skills 
+                        through reading, writing, and literature study.
+                    </p>
+                    <button class="course-btn" data-course="languages">Learn More</button>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="course-card">
+                    <h3>🎨 Arts & Creativity</h3>
+                    <p>
+                        Express yourself through various art forms including drawing, painting, music, and dance. 
+                        Develop creative thinking and artistic appreciation.
+                    </p>
+                    <button class="course-btn" data-course="arts">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         MODAL FOR ACHIEVEMENTS
+         =========================== -->
+    <div id="achievementModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Course Achievements</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="achievements-list" id="achievementsList"></div>
+        </div>
+    </div>
+
+    <!-- ===========================
+         CONTACT SECTION
+         =========================== -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            
+            <!-- Contact Information Cards -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>📍 Address</h3>
+                    <p>Punpun, Patna, Bihar</p>
+                </div>
+                <div class="info-card">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:earth.br01@gmail.com" style="color: #2a5298; text-decoration: none;">earth.br01@gmail.com</a></p>
+                </div>
+                <div class="info-card">
+                    <h3>📞 Phone</h3>
+                    <p><a href="tel:9988776655" style="color: #2a5298; text-decoration: none;">9988776655</a></p>
+                </div>
+            </div>
+
+            <div class="contact-container">
+                <!-- Success Message (Hidden by default) -->
+                <div class="success-message" id="success-message">
+                    ✓ Thank you! Your message has been sent successfully. We'll get back to you soon!
+                </div>
+
+                <!-- Contact Form -->
+                <form id="contact-form">
+                    <!-- Name Field -->
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name">
+                        <span class="error-message" id="name-error">Please enter your full name</span>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address">
+                        <span class="error-message" id="email-error">Please enter a valid email address</span>
+                    </div>
+
+                    <!-- Message Field -->
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Write your message here..."></textarea>
+                        <span class="error-message" id="message-error">Please enter a message</span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         FOOTER
+         =========================== -->
+    <footer>
+        <p>&copy; 2026 The Earth Public School. All rights reserved.</p>
+        <p>📍 Punpun, Patna, Bihar | 📞 9988776655 | 📧 earth.br01@gmail.com</p>
+    </footer>
+
+    <!-- ===========================
+         JAVASCRIPT
+         =========================== -->
+    <script>
+        /* ===========================
+           COURSE ACHIEVEMENTS DATA
+           =========================== */
+        const courseAchievements = {
+            science: {
+                title: "📚 Science & Technology Achievements",
+                achievements: [
+                    {
+                        title: "National Science Olympiad Winner",
+                        description: "Our students won 1st place in the National Science Olympiad with a project on renewable energy.",
+                        year: 2023
+                    },
+                    {
+                        title: "STEM Excellence Award",
+                        description: "Recognized as the Best STEM School in Bihar for innovative laboratory practices.",
+                        year: 2024
+                    },
+                    {
+                        title: "100% Science Practical Pass Rate",
+                        description: "All students scored above 90% in practical examinations for the past 3 consecutive years.",
+                        year: 2024
+                    },
+                    {
+                        title: "Research Project Recognition",
+                        description: "Student research on water purification was published in the National Science Journal.",
+                        year: 2023
+                    },
+                    {
+                        title: "International Science Fair Participant",
+                        description: "Represented India at the International Science Fair in Singapore with innovative projects.",
+                        year: 2022
+                    }
+                ]
+            },
+            mathematics: {
+                title: "🔢 Mathematics & Logic Achievements",
+                achievements: [
+                    {
+                        title: "Math Olympiad Gold Medal",
+                        description: "Won 5 gold medals and 3 silver medals in the Indian National Mathematical Olympiad.",
+                        year: 2024
+                    },
+                    {
+                        title: "100% Pass Rate in JEE Mains",
+                        description: "All mathematics students qualified JEE Mains with average score of 92%.",
+                        year: 2023
+                    },
+                    {
+                        title: "Vedic Mathematics Champion",
+                        description: "School team champions in the National Vedic Mathematics Competition for 2 consecutive years.",
+                        year: 2024
+                    },
+                    {
+                        title: "Problem Solving Excellence",
+                        description: "Published a book on Advanced Mathematical Problem Solving by our mathematics department.",
+                        year: 2023
+                    },
+                    {
+                        title: "Coding & Algorithm Award",
+                        description: "Students won state-level coding competition with perfect score in algorithm design.",
+                        year: 2024
+                    }
+                ]
+            },
+            languages: {
+                title: "📖 Languages & Literature Achievements",
+                achievements: [
+                    {
+                        title: "English Proficiency Excellence",
+                        description: "100% students achieved Grade A in English CBSE Board Examination.",
+                        year: 2024
+                    },
+                    {
+                        title: "National Debate Championship",
+                        description: "Won the National Schools Debate Championship in the English category.",
+                        year: 2023
+                    },
+                    {
+                        title: "Multilingual Speakers Program",
+                        description: "Successfully trained 200+ students to achieve fluency in 3+ languages.",
+                        year: 2024
+                    },
+                    {
+                        title: "Literature Award Winner",
+                        description: "School magazine won the Best School Publication Award from the Literature Council.",
+                        year: 2023
+                    },
+                    {
+                        title: "Global Language Certification",
+                        description: "75% students achieved B2 level certification in German, French, and Spanish.",
+                        year: 2024
+                    }
+                ]
+            },
+            arts: {
+                title: "🎨 Arts & Creativity Achievements",
+                achievements: [
+                    {
+                        title: "State Level Art Exhibition Winner",
+                        description: "School paintings exhibited at the National Art Gallery, with 3 works purchased by the government.",
+                        year: 2024
+                    },
+                    {
+                        title: "Music Performance Excellence",
+                        description: "Orchestra performed at the prestigious All India Music Festival and received standing ovation.",
+                        year: 2023
+                    },
+                    {
+                        title: "Dance Championship Victory",
+                        description: "Cultural Dance Team won the National School Dance Competition for Contemporary Category.",
+                        year: 2024
+                    },
+                    {
+                        title: "Young Entrepreneur Artist Award",
+                        description: "20+ students sold their artwork internationally through our online platform.",
+                        year: 2024
+                    },
+                    {
+                        title: "UNESCO Arts Recognition",
+                        description: "School recognized as Cultural Heritage Center by UNESCO for promoting traditional and modern arts.",
+                        year: 2023
+                    }
+                ]
+            }
+        };
+
+        /* ===========================
+           MODAL FUNCTIONALITY
+           =========================== */
+        const modal = document.getElementById('achievementModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const achievementsList = document.getElementById('achievementsList');
+
+        // Close modal when close button is clicked
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+        // Close modal when clicking outside the modal content
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+
+        // Add event listeners to all course buttons
+        const courseButtons = document.querySelectorAll('.course-btn');
+        courseButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const courseType = e.target.getAttribute('data-course');
+                const courseData = courseAchievements[courseType];
+
+                // Set modal title
+                modalTitle.textContent = courseData.title;
+
+                // Clear previous content
+                achievementsList.innerHTML = '';
+
+                // Add achievement items to modal with staggered animation
+                courseData.achievements.forEach((achievement, index) => {
+                    const achievementHtml = `
+                        <div class="achievement-item" style="animation: slideRight 0.5s ease-out ${index * 0.1}s both;">
+                            <h4>⭐ ${achievement.title}</h4>
+                            <p>${achievement.description}</p>
+                            <span class="achievement-year">Year: ${achievement.year}</span>
+                        </div>
+                    `;
+                    achievementsList.innerHTML += achievementHtml;
+                });
+
+                // Show modal
+                modal.classList.add('show');
+            });
+        });
+
+        /* ===========================
+           MOBILE MENU TOGGLE
+           =========================== */
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        // Toggle menu on hamburger button click
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        /* ===========================
+           WELCOME BUTTON FUNCTIONALITY
+           =========================== */
+        const welcomeBtn = document.getElementById('welcome-btn');
+        const welcomeMessage = document.getElementById('welcome-message');
+        let messageShown = false;
+
+        welcomeBtn.addEventListener('click', () => {
+            messageShown = !messageShown;
+            if (messageShown) {
+                welcomeMessage.style.display = 'block';
+                welcomeMessage.style.animation = 'popIn 0.4s ease-out';
+                welcomeBtn.textContent = 'Hide Message';
+                welcomeBtn.style.background = 'linear-gradient(135deg, #d4af37 0%, #f0d54a 100%)';
+            } else {
+                welcomeMessage.style.display = 'none';
+                welcomeBtn.textContent = 'Click for a Special Message!';
+                welcomeBtn.style.background = 'linear-gradient(135deg, #d4af37 0%, #f0d54a 100%)';
+            }
+        });
+
+        /* ===========================
+           CONTACT FORM VALIDATION
+           =========================== */
+        const contactForm = document.getElementById('contact-form');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const successMessage = document.getElementById('success-message');
+
+        // Form submission handler
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            // Clear previous success message
+            successMessage.classList.remove('show');
+
+            // Reset all error states
+            resetErrors();
+
+            // Validate form fields
+            let isValid = true;
+
+            // Validate Name Field
+            if (nameInput.value.trim() === '') {
+                showError('name');
+                isValid = false;
+            }
+
+            // Validate Email Field
+            if (emailInput.value.trim() === '') {
+                showError('email');
+                isValid = false;
+            } else if (!isValidEmail(emailInput.value)) {
+                showError('email');
+                isValid = false;
+            }
+
+            // Validate Message Field
+            if (messageInput.value.trim() === '') {
+                showError('message');
+                isValid = false;
+            }
+
+            // If form is valid, show success message
+            if (isValid) {
+                successMessage.classList.add('show');
+                // Clear form fields
+                contactForm.reset();
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+
+                console.log('Form submitted successfully!');
+                console.log({
+                    name: nameInput.value,
+                    email: emailInput.value,
+                    message: messageInput.value
+                });
+            }
+        });
+
+        /* ===========================
+           VALIDATION HELPER FUNCTIONS
+           =========================== */
+        
+        // Function to validate email format
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Function to show error message
+        function showError(fieldName) {
+            const formGroup = document.getElementById(fieldName).parentElement;
+            const errorMessage = document.getElementById(`${fieldName}-error`);
+            
+            formGroup.classList.add('error');
+            errorMessage.classList.add('show');
+        }
+
+        // Function to reset all errors
+        function resetErrors() {
+            const formGroups = document.querySelectorAll('.form-group');
+            const errorMessages = document.querySelectorAll('.error-message');
+
+            formGroups.forEach(group => group.classList.remove('error'));
+            errorMessages.forEach(msg => msg.classList.remove('show'));
+        }
+
+        /* ===========================
+           SMOOTH SCROLLING FOR NAVIGATION
+           =========================== */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        /* ===========================
+           CONSOLE MESSAGE
+           =========================== */
+        console.log('Welcome to The Earth Public School Website!');
+        console.log('This is a simple, beginner-friendly school website with interactive elements!');
+        console.log('Enjoy the floating bubbles and smooth animations! 🎓');
+    </script>
+</head>
+</body>
+</html>
